@@ -1,9 +1,13 @@
 const FeedbackForm = ({ data, onSubmit }) => {
+   const handleFormSubmit = (e) => {
+      // eslint-disable-next-line no-unused-expressions
+      e.preventDefault;
+      const formData = new FormData(e.target.form);
+      onSubmit(JSON.stringify(formData));
+   };
+
    return (
-      <form
-         className='content__form contact-form'
-         onSubmit={(e) => onSubmit(JSON.stringify(new FormData(e.currentTarget)))}
-      >
+      <form className='content__form contact-form' onSubmit={handleFormSubmit}>
          <div className='testing'>
             <p>Чем мы можем помочь?</p>
          </div>
